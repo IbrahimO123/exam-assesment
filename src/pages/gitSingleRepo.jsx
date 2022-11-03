@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Paper, Typography } from "@mui/material";
 import { MyContextApi } from "./../components/Layout";
+import { useNavigate } from "react-router-dom";
 
 function MySingleRepo() {
   const [repo, setRepo] = useState([]);
@@ -11,6 +12,11 @@ function MySingleRepo() {
     const getRepo = repos.filter((rep) => rep.id === Number(id));
     setRepo(getRepo);
   }, [id, repos]);
+  const navigate = useNavigate();
+  const handleBack = (e) => {
+    e.preventDefault();
+    navigate("/my-repos", { replace: true });
+  };
   return (
     <div>
      
@@ -19,7 +25,10 @@ function MySingleRepo() {
           repo?.map((rep) => {
             return (
               <Container key={rep.id}>
-                <h4>Single Repository: {rep.name.charAt(0).toUpperCase() + rep.name.slice(1)}</h4>
+                <h4>
+                  Single Repository:{" "}
+                  {rep.name.charAt(0).toUpperCase() + rep.name.slice(1)}
+                </h4>
                 <Paper sx={{ padding: "10px" }}>
                   <Typography
                     className="single"
@@ -123,6 +132,11 @@ function MySingleRepo() {
                     <p>{rep.clone_url}</p>
                   </div>
                 </Paper>
+                <div>
+                  <button className="btn" onClick={handleBack}>
+                    Back
+                  </button>
+                </div>
               </Container>
             );
           })}
