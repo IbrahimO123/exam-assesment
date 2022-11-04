@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Helmet } from "react-helmet";
 import { MyContextApi } from "./../components/Layout";
 import { Typography, Container, Box, TextField } from "@mui/material";
 
@@ -18,6 +19,14 @@ function ErrorBoundary() {
   const [hero, setHero] = useState("");
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Error Boundary</title>
+        <meta
+          name="description"
+          content="testing error boundary and how to reset the page after"
+        />
+      </Helmet>
       <Typography variant="body1"> Error Boundary</Typography>
 
       {explode ? <Bomb /> : null}
