@@ -14,6 +14,7 @@
 - React Router Dom
 - Error Boundary Package
 - Process Variable
+- Helmet
 
 ### Knowoledge Gained from the Assessment
 - How to configure and consume Github Apis on the frontend
