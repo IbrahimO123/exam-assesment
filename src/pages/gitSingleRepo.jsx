@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { Box, Container, Paper, Typography } from "@mui/material";
 import { MyContextApi } from "./../components/Layout";
@@ -19,7 +20,15 @@ function MySingleRepo() {
   };
   return (
     <div>
-     
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Single Repository</title>
+        <meta
+          name="description"
+          content="display a more detail for a single repository from Ibrahim github Account"
+        />
+      </Helmet>
+
       <Box>
         {repo &&
           repo?.map((rep) => {
