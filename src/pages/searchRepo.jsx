@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Octokit } from "octokit";
 import SearchIcon from "@mui/icons-material/Search";
 import MySearch from "../components/MySearch";
@@ -42,6 +43,14 @@ function SearchRepo() {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Search Repositories</title>
+        <meta
+          name="description"
+          content="saerch for repositories on github using name of the repositories"
+        />
+      </Helmet>
       <Typography component="h6">Search for repositories by name</Typography>
       <div style={{ margin: "20px" }}>
         <TextField
@@ -72,7 +81,7 @@ function SearchRepo() {
           <LinearProgress />
         </Box>
       ) : (
-        <Box>{search.trim() && data ?  <MySearch data={data} /> : null}</Box>
+        <Box>{search.trim() && data ? <MySearch data={data} /> : null}</Box>
       )}
     </div>
   );
