@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { Card, CardMedia } from "@mui/material";
 import NotFoundImage from "../assests/404.png";
@@ -11,6 +12,14 @@ function NotFound() {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Not Found</title>
+        <meta
+          name="description"
+          content="page for not found urls user input while using the app"
+        />
+      </Helmet>
       <h1>Page Not Found</h1>
       <Card>
         <CardMedia
