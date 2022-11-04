@@ -4,7 +4,7 @@ import { MyContextApi } from "./../components/Layout";
 import { Typography, Container, Box, TextField } from "@mui/material";
 
 function Bomb() {
-  throw new Error("💥 CABOOM 💥");
+  throw new Error("💥 CABOOM 💥 ...The Bomb have been activated..Error Boundary is on its way");
 }
 
 function NotAHero({ name }) {
