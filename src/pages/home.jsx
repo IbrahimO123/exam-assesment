@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Helmet } from "react-helmet";
 import MyCard from "../components/MyCard";
 import {
   Box,
@@ -56,6 +57,14 @@ function Home() {
 
   return (
     <Box>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <meta
+          name="description"
+          content="home page user can display their github profile also a short Blog post"
+        />
+      </Helmet>
       <Typography component="div" variant="h6">
         Blog
       </Typography>
@@ -128,7 +137,7 @@ function Home() {
         ) : (
           gitDetails &&
           gitDetails?.map((detail) => (
-            <div key={detail.login}   style={{padding:"5px"}}>
+            <div key={detail.login} style={{ padding: "5px" }}>
               <MyCard detail={detail} />
             </div>
           ))
