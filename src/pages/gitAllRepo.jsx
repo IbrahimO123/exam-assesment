@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Helmet } from "react-helmet";
 import {
   Container,
   Box,
@@ -67,6 +68,14 @@ function MyRepos() {
     </Backdrop>
   ) : (
     <Box>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>All Repositories</title>
+        <meta
+          name="description"
+          content="Displays all repositories on my github accoun also my profile and bio"
+        />
+      </Helmet>
       {user &&
         user?.map((person) => {
           return (
