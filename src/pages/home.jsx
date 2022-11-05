@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
+import { IconButton, Alert, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import MyCard from "../components/MyCard";
 import {
   Box,
@@ -17,6 +19,36 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [gitUser, setGitUser] = useState("");
   const [gitDetails, setGitDetails] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   const fetchUser = async (name) => {
     const token = process.env.GIT_TOKEN;
@@ -86,7 +118,18 @@ function Home() {
         bear. The man agreed later to take the lady out, At their outing, a
         friend of the ....to be continued
         <p>
-          <Button variant="contained">Click b4 Reading</Button>
+          <Button onClick={handleClick} variant="contained">
+            Click b4 Reading
+          </Button>
+          <Snackbar open={open} autoHideDuration={3000} action={action}>
+            <Alert
+              onClose={handleClose}
+              severity="info"
+              sx={{ width: "100%" }}
+            >
+              Blog Story Not Completed...
+            </Alert>
+          </Snackbar>
         </p>
       </Typography>
       <Box>
