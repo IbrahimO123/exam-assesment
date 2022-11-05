@@ -20,6 +20,8 @@ function MyRepos() {
   const octokit = new Octokit({
     auth: process.env.GIT_TOKEN,
   });
+
+  // Fuction to fetch all my repositories on git hub
   const fetchRepos = async () => {
     try {
       const result = await octokit.request("GET /users/{username}/repos", {
@@ -30,15 +32,18 @@ function MyRepos() {
       console.error(err.message);
     }
   };
-  const pages = 6;
-  const perPage = 5;
-  const lastRecord = page * perPage;
-  const firstRecord = lastRecord - perPage;
-  const records = repos.slice(firstRecord, lastRecord);
+  const pages = 6; //number of pages
+  const perPage = 5; //number of repos per page
+  const lastRecord = page * perPage; //last index of the slice operation
+  const firstRecord = lastRecord - perPage; //first index of the slice operation
+  const records = repos.slice(firstRecord, lastRecord); //to get the numeber of records using the slice operation
 
+  // function that hadles how the page numbers changes
   const handleChangePage = (e) => {
     setPage(e.target.value);
   };
+
+  //  fetch my profile from github
   const fetchUser = async () => {
     try {
       setLoading(true);
@@ -51,12 +56,14 @@ function MyRepos() {
       console.error(err.message);
     }
   };
+
+  //used to run the defineds function after rendering the page
   useEffect(() => {
     setTimeout(() => {
       fetchUser();
       fetchRepos();
     }, 2000);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading ? (
