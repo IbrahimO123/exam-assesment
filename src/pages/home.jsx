@@ -19,21 +19,22 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [gitUser, setGitUser] = useState("");
   const [gitDetails, setGitDetails] = useState([]);
-
   const [open, setOpen] = useState(false);
 
+  //used to open the snackbar
   const handleClick = () => {
     setOpen(true);
   };
 
+  //used to close the snackbar
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
+  //defined the action for the snackbar
   const action = (
     <React.Fragment>
       <Button color="secondary" size="small" onClick={handleClose}>
@@ -50,6 +51,7 @@ function Home() {
     </React.Fragment>
   );
 
+  // Fuction that fetchs user profile after inputting the username on Github
   const fetchUser = async (name) => {
     const token = process.env.GIT_TOKEN;
     const octokit = new Octokit({
@@ -65,11 +67,13 @@ function Home() {
     }
   };
 
+  //Used for user to input the username on Github
   const handleSetUser = (e) => {
     e.preventDefault();
     setGitUser(e.target.value);
   };
 
+  //Fuction used to handle the fecth operation and condtions to passed
   const handleFetchUser = async (e) => {
     e.preventDefault();
     try {
@@ -122,11 +126,7 @@ function Home() {
             Click b4 Reading
           </Button>
           <Snackbar open={open} autoHideDuration={3000} action={action}>
-            <Alert
-              onClose={handleClose}
-              severity="info"
-              sx={{ width: "100%" }}
-            >
+            <Alert onClose={handleClose} severity="info" sx={{ width: "100%" }}>
               Blog Story Not Completed...
             </Alert>
           </Snackbar>
