@@ -3,10 +3,12 @@ import { Helmet } from "react-helmet";
 import { MyContextApi } from "./../components/Layout";
 import { Typography, Container, Box, TextField } from "@mui/material";
 
+// To throw an Error
 function Bomb() {
-  throw new Error("💥 CABOOM 💥 ...The Bomb have been activated..Error Boundary is on its way");
+  throw new Error("💥 CABOOM 💥...The Bomb have been activated..Error Boundary is on its way");
 }
 
+// Also to throw an Error when user enters Joker
 function NotAHero({ name }) {
   if (name === "Joker" || name === "joker") {
     throw new Error("Joker is not a hero!");
