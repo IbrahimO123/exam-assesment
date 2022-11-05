@@ -10,6 +10,8 @@ function SearchRepo() {
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
+
+  // Function to get repositories from github by name
   const fetchSearchRepo = async (name) => {
     try {
       const octokit = new Octokit({
@@ -24,9 +26,9 @@ function SearchRepo() {
     }
   };
 
+  // fucntion that handle the search for repositories and condtions to passed
   const handleSearch = async (e) => {
     try {
-     
       e.preventDefault();
       if (search.trim() === "") return setError("Input a search value");
       setLoading(true);
@@ -36,7 +38,6 @@ function SearchRepo() {
       setData(value.items);
       setLoading(false)
       setError("");
-
     } catch (err) {
       console.error(err.message);
     }
