@@ -27,7 +27,7 @@
 
 ### Conlusion
 - The app comprises of a page where user can used to view a github profile, also another page to test out error boundary 
-- The My repositories page diplay my profile and  all repositories that I have on github
+- The My repositories page display my profile and  all repositories that I have on github
 - The search page can be used to search a repository(ies) on github using the name of the repository
 - Created a 404 page the redirect user back to home page if incase a user typed in a wrong url
 - A big appreciation goes to Alt School Africa for providing a platform for me to access the quality education system
