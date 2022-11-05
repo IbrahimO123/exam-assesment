@@ -8,11 +8,15 @@ import { useNavigate } from "react-router-dom";
 function MySingleRepo() {
   const [repo, setRepo] = useState([]);
   const [, , repos] = useContext(MyContextApi);
-  const { id } = useParams();
+  const { id } = useParams();  //getting the id from the url
+
+  // used to get the single repository from the data
   useEffect(() => {
     const getRepo = repos.filter((rep) => rep.id === Number(id));
     setRepo(getRepo);
   }, [id, repos]);
+  
+  //Navigate back to all repositories page
   const navigate = useNavigate();
   const handleBack = (e) => {
     e.preventDefault();
