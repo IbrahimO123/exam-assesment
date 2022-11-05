@@ -5,6 +5,8 @@ import { Card, CardMedia } from "@mui/material";
 import NotFoundImage from "../assests/404.png";
 
 function NotFound() {
+
+  //Naviagte user back to home page without not be able to return to the url that causes not found page to show
   const navigate = useNavigate();
   const handleReturn = (e) => {
     e.preventDefault();
