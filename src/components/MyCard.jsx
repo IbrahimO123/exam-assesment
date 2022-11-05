@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import {
@@ -11,9 +11,10 @@ import {
   IconButton,
 } from "@mui/material";
 
-function MyCard({detail}) {
+function MyCard({ detail }) {
+  const [like, setLike] = useState(false);
   return (
-    <Card sx={{ margin: "10px 0 15px 0", width: "350px", maxWidth: "360px"}}>
+    <Card sx={{ margin: "10px 0 15px 0", width: "350px", maxWidth: "360px" }}>
       <CardHeader
         title={detail.name}
         subheader={detail.company || <small>No Company name</small>}
@@ -50,7 +51,12 @@ function MyCard({detail}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton title="Like" aria-label="add to favorites">
+        <IconButton
+          title="Like"
+          onClick={() => setLike((s) => !s)}
+          color={like ? "primary" : undefined}
+          aria-label="add to favorites"
+        >
           <FavoriteIcon />
         </IconButton>
         <IconButton title="Share" aria-label="share">
@@ -61,4 +67,4 @@ function MyCard({detail}) {
   );
 }
 
-export default MyCard
+export default MyCard;
