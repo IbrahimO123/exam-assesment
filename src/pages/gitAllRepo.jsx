@@ -128,7 +128,9 @@ function MyRepos() {
                     <MySearch data={records} show={true} />
                   </Container>
                 )}
-                <Container mt={3}>
+              </div>
+              <div>
+                <Container sx={{ marginTop: "30px" }}>
                   <Stack spacing={2}>
                     <Typography
                       sx={{ marginTop: "10px" }}
