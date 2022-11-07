@@ -1,6 +1,8 @@
 import React from "react";
-import { Typography, Paper, Grid, Container } from "@mui/material";
+import { Typography, Paper, Grid, Container, IconButton } from "@mui/material";
 import { Link } from 'react-router-dom';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 function MySearch({ data, show=false }) {
   return (
@@ -35,19 +37,27 @@ function MySearch({ data, show=false }) {
                     <strong>Language: </strong>
                     {item.language || <small>No language detect</small>}
                   </Typography>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ textDecoration: "none" }}
-                    href={item.svn_url}
-                  >
-                    {item.svn_url}
-                  </a>
-                  {
-                    show ? <div style={{marginTop:"10px"}}>
-                    <Link className="detail" to={`/my-repos/${item.id}`}>Details</Link>
-                  </div> : null
-                  }
+                  <div className="details">
+                    <IconButton disableRipple>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ textDecoration: "none" }}
+                        href={item.svn_url}
+                      >
+                        <GitHubIcon /> Go To GitHub
+                      </a>
+                    </IconButton>
+                    {show ? (
+                      <span style={{ marginLeft: "20px" }}>
+                        <Link title="More" to={`/my-repos/${item.id}`}>
+                          <IconButton>
+                            <MoreHorizIcon />
+                          </IconButton>
+                        </Link>
+                      </span>
+                    ) : null}
+                  </div>
                 </Paper>
               </Grid>
             );
