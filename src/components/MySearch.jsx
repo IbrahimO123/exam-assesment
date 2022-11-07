@@ -45,7 +45,7 @@ function MySearch({ data, show=false }) {
                         style={{ textDecoration: "none" }}
                         href={item.svn_url}
                       >
-                        <GitHubIcon /> Go To GitHub
+                        <GitHubIcon /> <small>Go To GitHub</small>
                       </a>
                     </IconButton>
                     {show ? (
