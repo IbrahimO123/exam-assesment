@@ -8,7 +8,7 @@ export const MyContextApi = React.createContext([]);
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
-    <Container sx={{ marginTop: "80px" }}>
+    <Container sx={{ marginTop: "80px", textAlign: "center" }}>
       <div role="alert">
         <p>Something went wrong:</p>
         <pre>{error.message}</pre>
@@ -28,7 +28,7 @@ function Layout({ children }) {
     <MyContextApi.Provider
       value={[error, setError, repos, setRepos, explode, setExplode]}
     >
-      <Container disableGutters>
+      <Container disableGutters={true}>
         <Header />
         <ErrorBoundary
           FallbackComponent={ErrorFallback}
