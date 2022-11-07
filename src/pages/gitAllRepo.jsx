@@ -80,7 +80,7 @@ function MyRepos() {
         <title>All Repositories</title>
         <meta
           name="description"
-          content="Displays all repositories on my github accoun also my profile and bio"
+          content="Displays all repositories on my github account also my profile and bio"
         />
       </Helmet>
       {user &&
@@ -96,11 +96,10 @@ function MyRepos() {
                     display: "flex",
                     justifyContent: "center",
                     alignContent: "center",
-                    width: "50%",
+                    margin : "10px",
                   }}
-                  className="bio"
                 >
-                  <Typography component="p">{person.bio}</Typography>
+                  <Typography sx={{width: "40%"}} component="p">{person.bio}</Typography>
                 </div>
                 <Typography component="p">
                   <small>Github Username: </small>
