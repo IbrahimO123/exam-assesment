@@ -5,7 +5,9 @@ import { Typography, Container, Box, TextField } from "@mui/material";
 
 // To throw an Error
 function Bomb() {
-  throw new Error("💥 CABOOM 💥...The Bomb have been activated..Error Boundary is on its way");
+  throw new Error(`💥 CABOOM 💥
+   The Bomb have been activated
+   Error Boundary is around to help...`);
 }
 
 // Also to throw an Error when user enters Joker
