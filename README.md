@@ -25,7 +25,7 @@
 - How to display data using pagination
 - Deeper understanding on React Router Dom
 
-### Conlusion
+### Conclusion
 - The app comprises of a page where user can used to view a github profile, also another page to test out error boundary 
 - The My repositories page display my profile and  all repositories that I have on github
 - The search page can be used to search a repository(ies) on github using the name of the repository
