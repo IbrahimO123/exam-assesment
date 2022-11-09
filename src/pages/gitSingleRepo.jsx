@@ -8,16 +8,18 @@ import { useNavigate } from "react-router-dom";
 function MySingleRepo() {
   const [repo, setRepo] = useState([]);
   const [, , repos] = useContext(MyContextApi);
-  const { id } = useParams();  //getting the id from the url
+  const { id } = useParams(); //getting the id from the url
+  //Navigate back to all repositories page
+  const navigate = useNavigate();
 
   // used to get the single repository from the data
   useEffect(() => {
     const getRepo = repos.filter((rep) => rep.id === Number(id));
+    if (getRepo.length <= 0) return navigate("/my-repos", {replace : true});
     setRepo(getRepo);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, repos]);
-  
-  //Navigate back to all repositories page
-  const navigate = useNavigate();
+
   const handleBack = (e) => {
     e.preventDefault();
     navigate("/my-repos", { replace: true });
