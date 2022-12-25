@@ -5,7 +5,6 @@ import { Card, CardMedia } from "@mui/material";
 import NotFoundImage from "../assests/404.png";
 
 function NotFound() {
-
   //Naviagte user back to home page without not be able to return to the url that causes not found page to show
   const navigate = useNavigate();
   const handleReturn = (e) => {
@@ -29,7 +28,11 @@ function NotFound() {
           component="img"
           height="500"
           alt="not-found image"
-          sx={{width:"50vw", maxWidth:"50vw"}}
+          sx={{
+            width: "50vw",
+            maxWidth: "50vw",
+            "@media (max-width: 1000px)": { width: "90vw", maxWidth: "90vw",objectFit:"fill", height:"70vh"},
+          }}
         />
       </Card>
       <button className="btn" onClick={handleReturn}>
