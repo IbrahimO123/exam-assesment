@@ -27,8 +27,9 @@ function NotFound() {
         <CardMedia
           image={NotFoundImage}
           component="img"
-          height="340"
+          height="500"
           alt="not-found image"
+          sx={{width:"50vw", maxWidth:"50vw"}}
         />
       </Card>
       <button className="btn" onClick={handleReturn}>
