@@ -3,11 +3,17 @@ import { Helmet } from "react-helmet";
 import { Octokit } from "octokit";
 import SearchIcon from "@mui/icons-material/Search";
 import MySearch from "../components/MySearch";
-import { Typography, TextField, Button, Box, LinearProgress } from "@mui/material";
+import {
+  Typography,
+  TextField,
+  Button,
+  Box,
+  LinearProgress,
+} from "@mui/material";
 
 function SearchRepo() {
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
 
@@ -36,7 +42,7 @@ function SearchRepo() {
       const value = results.data;
       if (value.items === 0) return setError("No search found");
       setData(value.items);
-      setLoading(false)
+      setLoading(false);
       setError("");
     } catch (err) {
       console.error(err.message);
