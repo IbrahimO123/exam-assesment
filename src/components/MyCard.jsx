@@ -13,6 +13,13 @@ import {
 
 function MyCard({ detail }) {
   const [like, setLike] = useState(false);
+  const [share, setShare] = useState(false);
+  const handleShare = () => {
+    setShare(true);
+    setTimeout(() => {
+      window.open("whatsapp://send?text=" + JSON.stringify(detail));
+    }, 1000);
+  };
   return (
     <Card sx={{ margin: "10px 0 15px 0", width: "350px", maxWidth: "360px" }}>
       <CardHeader
@@ -59,7 +66,12 @@ function MyCard({ detail }) {
         >
           <FavoriteIcon />
         </IconButton>
-        <IconButton title="Share" aria-label="share">
+        <IconButton
+          title="Share"
+          color={share ? "primary" : undefined}
+          onClick={handleShare}
+          aria-label="share"
+        >
           <ShareIcon />
         </IconButton>
       </CardActions>
