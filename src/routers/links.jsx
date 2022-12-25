@@ -46,6 +46,11 @@ function Links() {
               Search
             </NavLink>
           </Typography>
+          <Typography variant="body2" component="div">
+            <NavLink className="link" to="/not-found-page">
+              Not Found Page
+            </NavLink>
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>
