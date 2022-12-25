@@ -1,14 +1,13 @@
 import React from "react";
 import { Typography, Paper, Grid, Container, IconButton } from "@mui/material";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-function MySearch({ data, show=false }) {
+function MySearch({ data, show = false }) {
   return (
-    <Container p={4} >
-      <Typography varaint="h4" component="div">
-      </Typography>
+    <Container p={4}>
+      <Typography varaint="h4" component="div"></Typography>
       <Grid container spacing={2}>
         {data &&
           data?.map((item) => {
@@ -31,7 +30,15 @@ function MySearch({ data, show=false }) {
                   </Typography>
                   <Typography variant="caption" component="div">
                     <strong>Description: </strong>
-                    {item.description || <small>No Description</small>}
+                    {item.description ? (
+                      show ? (
+                        item.description.substring(0, 20) + "..."
+                      ) : (
+                        item.description
+                      )
+                    ) : (
+                      <small>No Description</small>
+                    )}
                   </Typography>
                   <Typography variant="caption" component="div">
                     <strong>Language: </strong>
