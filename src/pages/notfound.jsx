@@ -31,7 +31,12 @@ function NotFound() {
           sx={{
             width: "50vw",
             maxWidth: "50vw",
-            "@media (max-width: 1000px)": { width: "90vw", maxWidth: "90vw",objectFit:"fill", height:"70vh"},
+            "@media (max-width: 1000px)": {
+              width: "90vw",
+              maxWidth: "90vw",
+              objectFit: "fill",
+              height: "70vh",
+            },
           }}
         />
       </Card>
