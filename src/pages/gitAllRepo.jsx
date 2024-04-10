@@ -96,10 +96,12 @@ function MyRepos() {
                     display: "flex",
                     justifyContent: "center",
                     alignContent: "center",
-                    margin : "10px",
+                    margin: "10px",
                   }}
                 >
-                  <Typography sx={{width: "40%"}} component="p">{person.bio}</Typography>
+                  <Typography sx={{ width: "40%" }} component="p">
+                    {person.bio}
+                  </Typography>
                 </div>
                 <Typography component="p">
                   <small>Github Username: </small>
